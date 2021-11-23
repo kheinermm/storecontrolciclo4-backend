@@ -4,8 +4,8 @@ const usuariosController = require('../Controllers/usuarios.controller')
 const Auth = require('../auth/main_auth')
 
 // router.get("/", Auth.verifyToken, usuariosController.listarUsuarios)
-router.post("/login", Auth.verifyToken, usuariosController.login)
-router.post("/register", Auth.verifyToken, usuariosController.register)
+router.post("/login", usuariosController.login)
+router.post("/register", usuariosController.register)
 // login y registro con token de usuario invitado
 
 // /* GET users listing. */

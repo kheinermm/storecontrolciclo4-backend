@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const empleadosController = require('../Controllers/empleados.controller')
-const Auth = require('../auth/main_auth')
+const Auth = require('../helper/auth')
 
 // CREAR EMPLEADO
 router.post('/', Auth.verifyToken, empleadosController.create)

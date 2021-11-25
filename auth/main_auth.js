@@ -1,8 +1,8 @@
 // const { request } = require('express')
 const jwt = require('jsonwebtoken')
-const auth = {}
+const Auth = {}
 
-auth.verifyToken = (req, res, next) => {
+Auth.verifyToken = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(" ")[1]
         console.log("token "+token)
@@ -15,4 +15,4 @@ auth.verifyToken = (req, res, next) => {
         res.json({code:4, msg:"no tiene permisos para acceder"})
     }
 }
-module.exports = auth;
+module.exports = Auth;

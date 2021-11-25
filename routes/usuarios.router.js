@@ -1,12 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const usuariosController = require('../Controllers/usuarios.controller')
-const Auth = require('../auth/main_auth')
+// const Auth = require('../auth/main_auth')
 
-// router.get("/", Auth.verifyToken, usuariosController.listarUsuarios)
+
 router.post("/login", usuariosController.login)
 router.post("/register", usuariosController.register)
-// login y registro con token de usuario invitado
+
+// router.get("/", Auth.verifyToken, usuariosController.listarUsuarios)
+// listar usuarios con token de usuario admin
 
 // /* GET users listing. */
 // router.get('/', function(req, res, next) {

@@ -1,8 +1,8 @@
-// const { request } = require('express')
-const jwt = require('jsonwebtoken')
-const Auth = {}
+const { request } = require('express');
+const jwt = require('jsonwebtoken');
+const Auth = {};
 
-Auth.verifyToken = (req, res, next) => {
+Auth.verify = (req, res, next) => {
     try {
         if (!req.headers.authorization || req.headers.authorization === null) {
             return res.json({msg:"no tiene permisos para acceder"})
@@ -10,10 +10,9 @@ Auth.verifyToken = (req, res, next) => {
         const token = req.headers.authorization.split(" ")[1]
         const decoded = jwt.verify(token, "_Secret_")
         request.usuario = decoded
+        // console.log(decoded)
         next()
-        
     } catch (error) {
-        console.log(error.msg)
         res.status(401)
         res.json({code:4, msg:"no tiene permisos para acceder"})
     }

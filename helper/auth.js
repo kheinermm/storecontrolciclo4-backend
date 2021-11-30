@@ -10,7 +10,7 @@ Auth.verify = (req, res, next) => {
         const token = req.headers.authorization.split(" ")[1]
         const decoded = jwt.verify(token, "_Secret_")
         request.usuario = decoded
-        // console.log(decoded)
+        
         next()
     } catch (error) {
         res.status(401)

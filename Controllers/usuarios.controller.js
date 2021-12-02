@@ -18,7 +18,9 @@ exports.login = function (req, res, next) {
         let response = { token: null }
         if (usuario !== null) {
             response.token = jwt.sign(
-                { id: usuario._id, usuario: usuario.usuario }, "_Secret_"
+                { id: usuario._id, usuario: usuario.usuario }, 
+                "_Secret_",
+                { expiresIn: '12h' }
             )
             res.cookie("jwt", response.token, { httpOnly: true, maxAge: MaxAge });
             res.json(response);

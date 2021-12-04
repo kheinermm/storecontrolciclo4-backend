@@ -1,4 +1,4 @@
-const Empleado = require('../models/empleados.model');
+const Venta = require('../models/ventas.model');
 
 let response = {
     msg: "",
@@ -7,79 +7,79 @@ let response = {
 
 //CREA NUEVO EMPLEADO
 exports.create = function (req, res) {
-    let empleado = new Empleado({
-        nombre: req.body.nombre,
-        apellido_p: req.body.apellido_p,
-        apellido_m: req.body.apellido_m,
-        telefono: req.body.telefono,
-        mail: req.body.mail,
-        direccion: req.body.direccion
+    let venta = new Venta({
+        fecha: req.body.fecha,
+        codigo_ref: req.body.codigo_ref,
+        producto: req.body.producto,
+        cantidad: req.body.cantidad,
+        precio_unit: req.body.precio_unit,
+        precio_total: req.body.precio_total
     })
     //GUARDA EMPLEADO
-    empleado.save(function (err) {
+    venta.save(function (err) {
         if (err) {
             console.log = false,
                 response.exito = false,
-                response.msg = "Error al guardar el empleado"
+                response.msg = "Error al guardar la venta"
             res.json(response)
             return;
         }
         response.exito = true,
-            response.msg = "El empleado se guardó correctamente"
+            response.msg = "La venta se guardó correctamente"
         res.json(response)
     })
 }
 
 //OBTIENE TODOS LOS EMPLEADOS
 exports.find = function (req, res) {
-    Empleado.find(function (err, empleados) {
-        res.json(empleados)
+    Venta.find(function (err, ventas) {
+        res.json(ventas)
     })
 }
 
 //OBTIENE TODOS LOS EMPLEADOS
 exports.findOne = function (req, res) {
-    Empleado.findOne({ _id: req.params.id }, function (err, empleados) {
-        res.json(empleados)
+    Venta.findOne({ _id: req.params.id }, function (err, ventas) {
+        res.json(ventas)
     })
 }
 
 //ACTUALIZAR EMPLEADO POR ID
 exports.update = function (req, res) {
-    let empleado = {
-        nombre: req.body.nombre,
-        apellido_p: req.body.apellido_p,
-        apellido_m: req.body.apellido_m,
-        telefono: req.body.telefono,
-        mail: req.body.mail,
-        direccion: req.body.direccion
+    let venta = {
+        fecha: req.body.fecha,
+        codigo_ref: req.body.codigo_ref,
+        producto: req.body.producto,
+        cantidad: req.body.cantidad,
+        precio_unit: req.body.precio_unit,
+        precio_total: req.body.precio_total
     }
 
-    Empleado.findByIdAndUpdate(req.params.id, { $set: empleado }, function (err) {
+    Venta.findByIdAndUpdate(req.params.id, { $set: venta }, function (err) {
         if (err) {
             console.error(err),
                 response.exito = false,
-                response.msg = "Error al modificar empleado"
+                response.msg = "Error al modificar venta"
             res.json(response)
             return;
         }
         response.exito = true,
-            response.msg = "Se modificaron correctamente los datos del empleado"
+            response.msg = "Se modificaron correctamente los datos de la venta"
         res.json(response)
     })
 }
 
 exports.remove = function (req, res) {
-    Empleado.findByIdAndRemove({ _id: req.params.id }, function (err) {
+    Venta.findByIdAndRemove({ _id: req.params.id }, function (err) {
         if (err) {
             console.error(err),
                 response.exito = false,
-                response.msg = "Error al eliminar empleado"
+                response.msg = "Error al eliminar venta"
             res.json(response)
             return;
         }
         response.exito = true,
-            response.msg = "Se elimino correctamente el empleado"
+            response.msg = "Se elimino correctamente la venta"
         res.json(response)
     })
 }

@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const EmpleadosSchema = new Schema({
-    nombre: { type: String, required: true, max: 60 },
-    apellido_p: { type: String, required: true, max: 40 },
-    apellido_m: { type: String, required: true, max: 40 },
-    telefono: { type: String, required: true, max: 15 },
-    mail: { type: String, required: false, max: 70 },
-    direccion: { type: String, required: false, max: 150 }
+const VentasSchema = new Schema({
+    fecha: { type: Date, default: Date.now, required: true, max: 120 },
+    codigo_ref: { type: String, required: true, max: 30 },
+    nom_producto: { type: String, required: true, max: 60 },
+    cantidad: { type: String, required: true, max: 10 },
+    precio_unit: { type: String, required: true, max: 15 },
+    precio_total: { type: String, required: true, max: 15 }
 });
 
-module.exports = mongoose.model("empleados", EmpleadosSchema);
+module.exports = mongoose.model("ventas", VentasSchema);

@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const empleadosController = require('../Controllers/empleados.controller')
+const ventasController = require('../Controllers/ventas.controller')
 const Auth = require('../helper/auth')
 
-// CREAR EMPLEADO
-router.post('/', Auth.verify, empleadosController.create)
-router.get('/', Auth.verify, empleadosController.find);
-router.get('/:id', Auth.verify, empleadosController.findOne);
-router.delete('/:id', Auth.verify, empleadosController.remove);
+// CREAR VENTA
+router.post('/', Auth.verify, ventasController.create)
+router.get('/', Auth.verify, ventasController.find);
+router.get('/:id', Auth.verify, ventasController.findOne);
+router.put('/:id', Auth.verify, ventasController.update);
+router.delete('/:id', Auth.verify, ventasController.remove);
 
 module.exports = router;

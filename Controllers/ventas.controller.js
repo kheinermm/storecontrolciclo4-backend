@@ -5,17 +5,17 @@ let response = {
     exito: false
 }
 
-//CREA NUEVO EMPLEADO
+//CREA NUEVA VENTA
 exports.create = function (req, res) {
     let venta = new Venta({
         fecha: req.body.fecha,
         codigo_ref: req.body.codigo_ref,
-        producto: req.body.producto,
+        nom_producto: req.body.producto,
         cantidad: req.body.cantidad,
         precio_unit: req.body.precio_unit,
         precio_total: req.body.precio_total
     })
-    //GUARDA EMPLEADO
+    //GUARDA VENTA
     venta.save(function (err) {
         if (err) {
             console.log = false,
@@ -30,26 +30,26 @@ exports.create = function (req, res) {
     })
 }
 
-//OBTIENE TODOS LOS EMPLEADOS
+//OBTIENE TODAS LAS VENTAS
 exports.find = function (req, res) {
     Venta.find(function (err, ventas) {
         res.json(ventas)
     })
 }
 
-//OBTIENE TODOS LOS EMPLEADOS
+//OBTIENE TODAS LAS VENTAS
 exports.findOne = function (req, res) {
     Venta.findOne({ _id: req.params.id }, function (err, ventas) {
         res.json(ventas)
     })
 }
 
-//ACTUALIZAR EMPLEADO POR ID
+//ACTUALIZAR VENTA POR ID
 exports.update = function (req, res) {
     let venta = {
         fecha: req.body.fecha,
         codigo_ref: req.body.codigo_ref,
-        producto: req.body.producto,
+        nom_producto: req.body.producto,
         cantidad: req.body.cantidad,
         precio_unit: req.body.precio_unit,
         precio_total: req.body.precio_total

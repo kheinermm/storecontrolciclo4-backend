@@ -13,7 +13,8 @@ exports.create = function (req, res) {
         nom_producto: req.body.producto,
         cantidad: req.body.cantidad,
         precio_unit: req.body.precio_unit,
-        precio_total: req.body.precio_total
+        precio_total: req.body.precio_total,
+        descuento: req.body.descuento
     })
     //GUARDA VENTA
     venta.save(function (err) {
@@ -52,7 +53,8 @@ exports.update = function (req, res) {
         nom_producto: req.body.producto,
         cantidad: req.body.cantidad,
         precio_unit: req.body.precio_unit,
-        precio_total: req.body.precio_total
+        precio_total: req.body.precio_total,
+        descuento: req.body.descuento
     }
 
     Venta.findByIdAndUpdate(req.params.id, { $set: venta }, function (err) {

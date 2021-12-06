@@ -8,7 +8,7 @@ var cors = require('cors');
 // Database
 var database = require('./config/database');
 
-var empleadosRouter = require('./routes/empleados.router');
+// var empleadosRouter = require('./routes/empleados.router');
 var usuariosRouter = require('./routes/usuarios.router');
 var productosRouter = require('./routes/productos.router');
 var ventasRouter = require('./routes/ventas.router');
@@ -29,7 +29,7 @@ database.mongoConnect();
 
 // ROUTER
 app.use('/usuarios', usuariosRouter);
-app.use('/empleados', empleadosRouter);
+// app.use('/empleados', empleadosRouter);
 app.use('/productos', productosRouter);
 app.use('/ventas', ventasRouter);
 app.use('/proveedores', proveedoresRouter);

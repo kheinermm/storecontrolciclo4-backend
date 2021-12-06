@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const EmpleadosSchema = new Schema({
+const ProveedoresSchema = new Schema({
     nombre: { type: String, required: true, max: 60 },
     apellido_p: { type: String, required: true, max: 40 },
     apellido_m: { type: String, required: true, max: 40 },
@@ -10,4 +10,4 @@ const EmpleadosSchema = new Schema({
     direccion: { type: String, required: false, max: 150 }
 });
 
-module.exports = mongoose.model("empleados", EmpleadosSchema);
+module.exports = mongoose.model("proveedores", ProveedoresSchema);

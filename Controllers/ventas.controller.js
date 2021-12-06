@@ -10,9 +10,7 @@ exports.create = function (req, res) {
     let venta = new Venta({
         fecha: req.body.fecha,
         codigo_ref: req.body.codigo_ref,
-        nom_producto: req.body.producto,
         cantidad: req.body.cantidad,
-        precio_unit: req.body.precio_unit,
         precio_total: req.body.precio_total,
         descuento: req.body.descuento
     })
@@ -50,9 +48,7 @@ exports.update = function (req, res) {
     let venta = {
         fecha: req.body.fecha,
         codigo_ref: req.body.codigo_ref,
-        nom_producto: req.body.producto,
         cantidad: req.body.cantidad,
-        precio_unit: req.body.precio_unit,
         precio_total: req.body.precio_total,
         descuento: req.body.descuento
     }

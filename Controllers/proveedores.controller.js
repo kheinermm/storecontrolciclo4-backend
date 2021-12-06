@@ -1,13 +1,13 @@
-const Empleado = require('../models/proveedores.model');
+const Proveedor = require('../models/proveedores.model');
 
 let response = {
     msg: "",
     exito: false
 }
 
-//CREA NUEVO EMPLEADO
+//CREA NUEVO PROVEEDOR
 exports.create = function (req, res) {
-    let proveedor = new Empleado({
+    let proveedor = new Proveedor({
         nombre: req.body.nombre,
         apellido_p: req.body.apellido_p,
         apellido_m: req.body.apellido_m,
@@ -15,7 +15,7 @@ exports.create = function (req, res) {
         mail: req.body.mail,
         direccion: req.body.direccion
     })
-    //GUARDA EMPLEADO
+    //GUARDA PROVEEDOR
     proveedor.save(function (err) {
         if (err) {
             console.log = false,
@@ -32,19 +32,19 @@ exports.create = function (req, res) {
 
 //OBTIENE TODOS LOS PROVEEDORES
 exports.find = function (req, res) {
-    Empleado.find(function (err, proveedores) {
+    Proveedor.find(function (err, proveedores) {
         res.json(proveedores)
     })
 }
 
 //OBTIENE TODOS LOS PROVEEDORES
 exports.findOne = function (req, res) {
-    Empleado.findOne({ _id: req.params.id }, function (err, proveedores) {
+    Proveedor.findOne({ _id: req.params.id }, function (err, proveedores) {
         res.json(proveedores)
     })
 }
 
-//ACTUALIZAR EMPLEADO POR ID
+//ACTUALIZAR PROVEEDOR POR ID
 exports.update = function (req, res) {
     let proveedor = {
         nombre: req.body.nombre,
@@ -55,7 +55,7 @@ exports.update = function (req, res) {
         direccion: req.body.direccion
     }
 
-    Empleado.findByIdAndUpdate(req.params.id, { $set: proveedor }, function (err) {
+    Proveedor.findByIdAndUpdate(req.params.id, { $set: proveedor }, function (err) {
         if (err) {
             console.error(err),
                 response.exito = false,
@@ -70,7 +70,7 @@ exports.update = function (req, res) {
 }
 
 exports.remove = function (req, res) {
-    Empleado.findByIdAndRemove({ _id: req.params.id }, function (err) {
+    Proveedor.findByIdAndRemove({ _id: req.params.id }, function (err) {
         if (err) {
             console.error(err),
                 response.exito = false,

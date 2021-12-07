@@ -8,8 +8,10 @@ const userdb = "misiontic2022";
 const passdb = "xdKk82aY7dMmqs2s";
 
 exports.mongoConnect = () => {
-
+    //LOCAL
     const mongoStringConnection = `mongodb://${host}:${port}/${db}`;
+
+    //REMOTO
     //const mongoStringConnection = `mongodb+srv://${userdb}:${passdb}@${hostdb}/${db}?retryWrites=true&w=majority`;
 
     mongoose.connect(mongoStringConnection);

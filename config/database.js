@@ -10,7 +10,6 @@ const passdb = "xdKk82aY7dMmqs2s";
 exports.mongoConnect = () => {
 
     // const mongoStringConnection = `mongodb://${host}:${port}/${db}`;
-    // const mongoStringConnection = `mongodb+srv://${userdb}:${passdb}@${hostdb}/${db}`;
     const mongoStringConnection = `mongodb+srv://${userdb}:${passdb}@${hostdb}/${db}?retryWrites=true&w=majority`;
 
     mongoose.connect(mongoStringConnection);
